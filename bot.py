@@ -19,7 +19,7 @@ def configure_logging():
 	stream_handler.setLevel(logging.INFO)
 	bot_logger.addHandler(stream_handler)
 
-	file_formatter = logging.Formatter('[%(asctime)s] - %(levelname)s - %(message)s')
+	file_formatter = logging.Formatter('[%(asctime)s] - %(levelname)s - %(message)s', '%d-%m-%Y, %H:%M:%S')
 	file_handler = logging.FileHandler('bot_log.log', mode='a', encoding='utf8')
 	file_handler.setFormatter(file_formatter)
 	file_handler.setLevel(logging.DEBUG)
@@ -41,7 +41,7 @@ class Bot:
 		"""
 		self.token = token
 		self.group_id = group_id
-		self.vk = vk_api.vk_api.VkApi(token=token)
+		self.vk = vk_api.VkApi(token=token)
 		self.long_pool = VkBotLongPoll(self.vk, self.group_id)
 		self.api = self.vk.get_api()
 
