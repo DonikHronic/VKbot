@@ -53,7 +53,7 @@ class Bot:
 			except Exception:
 				bot_logger.exception('Ошибка в обработке')
 
-	def _on_event(self, event: VkBotEventType):
+	def _on_event(self, event):
 		"""
 		Отправляет сообщение назад, если это текст.
 		:param event: VkBotMessageEvent object
